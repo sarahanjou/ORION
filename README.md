@@ -55,6 +55,22 @@ bash demo.sh
 
 Ce script lance automatiquement l'agent Orion et l'application Flutter.
 
+**Option manuelle**
+
+1. Démarrer l'agent Orion :
+```bash
+cd scripts
+bash launch_orion.sh
+```
+
+2. Dans un autre terminal, lancer l'application Flutter :
+```bash
+cd frontend
+flutter clean
+flutter pub get
+flutter run -d chrome
+```
+
 ## Configuration
 
 Les variables d'environnement se configurent dans `backend/.env`. Voir [backend/README.md](backend/README.md) pour les détails.
@@ -71,8 +87,23 @@ ORION/
 └── scripts/           # Scripts de lancement
 ```
 
+## Documentation
+
+- [Documentation du backend](backend/README.md)
+- [Diagnostics LiveKit](docs/DIAGNOSTIC_LIVEKIT.md)
+- [Solution appliquée](docs/SOLUTION_APPLIQUEE.md)
+
+## Scripts disponibles
+
+- `demo.sh` : Lance l'agent et l'application Flutter automatiquement
+- `launch_orion.sh` : Lance uniquement l'agent Orion (macOS/Linux)
+- `launch_orion.bat` : Lance uniquement l'agent Orion (Windows)
+- `dispatch_agent.py` : Script Python pour dispatcher l'agent à une room LiveKit
+
 ## Notes
 
 - Projet développé dans le cadre d'une PeiP 2 à Polytech (septembre-décembre 2025)
 - Prototype fonctionnel, prêt pour des améliorations en vue d'une industrialisation
 - Matériel : Raspberry Pi Zero 2, écran 7 pouces, système audio mono
+- Le serveur Flask est déployé sur Render pour la production
+- L'agent Orion gère les calendriers Google, Gmail et les contacts
