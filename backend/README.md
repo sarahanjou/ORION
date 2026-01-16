@@ -1,6 +1,6 @@
 # Backend ORION
 
-Backend Python : serveur Flask pour tokens LiveKit + agent vocal qui planifie automatiquement les interventions de maintenance depuis les demandes vocales des opérateurs.
+La partie backend, également appelée le cerveau d'Orion, orchestre l'intelligence artificielle, le flux audio en temps réel et les outils collaboratifs pour automatiser la maintenance industrielle.
 
 ## Fonctionnalités
 
