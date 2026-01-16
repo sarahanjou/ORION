@@ -1,12 +1,12 @@
 # ORION
 
-Agent IA conversationnel vocal pour faciliter la communication entre les équipes de production et de maintenance en industrie.
+Agent IA conversationnel vocal conçu pour fluidifier la communication entre les équipes de production et de maintenance en environnement industriel.
 
 ## Le problème
 
-En atelier de production, les opérateurs doivent garder les mains propres et libres. Quand un incident survit, alerter la maintenance via un clavier ou une souris n'est pas pratique. Orion permet de signaler un besoin par commande vocale, directement depuis l'atelier.
+En atelier, les opérateurs doivent garder les mains libres et propres (port de gants, manipulation de pièces). En cas d'incident, l'utilisation d'un clavier ou d'une souris pour saisir un ticket de maintenance est inadaptée. Orion permet de signaler une anomalie par simple commande vocale.
 
-## Comment ça marche
+## Fonctionnement
 
 Orion écoute la demande vocale de l'opérateur, identifie les personnes concernées, consulte leurs agendas, planifie l'intervention et envoie automatiquement un email récapitulatif à la maintenance.
 
@@ -17,8 +17,8 @@ Orion écoute la demande vocale de l'opérateur, identifie les personnes concern
 
 - **Communication vocale** : LiveKit pour l'échange audio en temps réel
 - **Raisonnement** : OpenAI Realtime Model pour comprendre l'intention directement depuis la voix
-- **Actions** : Google APIs (Gmail, Calendar, People) pour gérer les emails, agendas et contacts
-- **Sécurité** : OAuth 2.0 pour l'authentification
+- **Prise de décision** : Google APIs (Gmail, Calendar, People) pour gérer les emails, agendas et contacts
+- **Sécurisation des échanges** : OAuth 2.0 pour l'authentification
 
 ## Démarrage rapide
 
@@ -26,7 +26,7 @@ Orion écoute la demande vocale de l'opérateur, identifie les personnes concern
 
 - Python 3.10+
 - Flutter SDK
-- Compte LiveKit
+- API LiveKit
 - Clés API OpenAI et Google
 
 ### Installation
@@ -45,65 +45,13 @@ cd frontend
 flutter pub get
 ```
 
-### Lancer le projet
+### Lancement du projet
 
-Le plus simple :
 ```bash
 cd scripts
 bash demo.sh
 ```
 
-Ce script lance automatiquement l'agent Orion et l'application Flutter.
-
-**Option manuelle**
-
-1. Démarrer l'agent Orion :
-```bash
-cd scripts
-bash launch_orion.sh
-```
-
-2. Dans un autre terminal, lancer l'application Flutter :
-```bash
-cd frontend
-flutter clean
-flutter pub get
-flutter run -d chrome
-```
-
 ## Configuration
 
-Les variables d'environnement se configurent dans `backend/.env`. Voir [backend/README.md](backend/README.md) pour les détails.
-
-## Structure
-
-```
-ORION/
-├── frontend/          # Application Flutter (Web, iOS, Android)
-├── backend/           # Agent Orion (Python)
-│   ├── server/        # Serveur Flask pour tokens LiveKit
-│   ├── agent/         # Code source de l'agent
-│   └── secrets/       # Configuration OAuth
-└── scripts/           # Scripts de lancement
-```
-
-## Documentation
-
-- [Documentation du backend](backend/README.md)
-- [Diagnostics LiveKit](docs/DIAGNOSTIC_LIVEKIT.md)
-- [Solution appliquée](docs/SOLUTION_APPLIQUEE.md)
-
-## Scripts disponibles
-
-- `demo.sh` : Lance l'agent et l'application Flutter automatiquement
-- `launch_orion.sh` : Lance uniquement l'agent Orion (macOS/Linux)
-- `launch_orion.bat` : Lance uniquement l'agent Orion (Windows)
-- `dispatch_agent.py` : Script Python pour dispatcher l'agent à une room LiveKit
-
-## Notes
-
-- Projet développé dans le cadre d'une PeiP 2 à Polytech (septembre-décembre 2025)
-- Prototype fonctionnel, prêt pour des améliorations en vue d'une industrialisation
-- Matériel : Raspberry Pi Zero 2, écran 7 pouces, système audio mono
-- Le serveur Flask est déployé sur Render pour la production
-- L'agent Orion gère les calendriers Google, Gmail et les contacts
+Les variables d'environnement doivent être renseignées dans le fichier backend/.env.
