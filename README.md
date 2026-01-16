@@ -1,26 +1,29 @@
 # ORION
 
-Projet d'assistant personnel IA développé avec Flutter (frontend) et Python (backend), utilisant LiveKit pour la communication vocale en temps réel.
+Agent IA conversationnel vocal pour faciliter la communication entre les équipes de production et de maintenance en industrie.
 
-## 📁 Structure du Projet
+## Le problème
 
-```
-ORION/
-├── frontend/          # Application Flutter (Web, iOS, Android)
-├── backend/           # Serveur Python avec agent Orion
-│   ├── server/        # Serveur Flask pour tokens LiveKit
-│   │   └── server.py
-│   ├── agent/         # Code source de l'agent Orion
-│   │   └── orion/
-│   └── secrets/       # Fichiers de configuration sensibles
-├── scripts/           # Scripts de lancement et utilitaires
-├── docs/              # Documentation
-└── README.md          # Ce fichier
-```
+En atelier de production, les opérateurs doivent garder les mains propres et libres. Quand un incident survit, alerter la maintenance via un clavier ou une souris n'est pas pratique. Orion permet de signaler un besoin par commande vocale, directement depuis l'atelier.
 
-## 🚀 Démarrage Rapide
+## Comment ça marche
+
+Orion écoute la demande vocale de l'opérateur, identifie les personnes concernées, consulte leurs agendas, planifie l'intervention et envoie automatiquement un email récapitulatif à la maintenance.
+
+**Côté production** : un terminal vocal installé en atelier  
+**Côté maintenance** : une app mobile pour consulter les interventions en temps réel
+
+## Architecture
+
+- **Communication vocale** : LiveKit pour l'échange audio en temps réel
+- **Raisonnement** : OpenAI Realtime Model pour comprendre l'intention directement depuis la voix
+- **Actions** : Google APIs (Gmail, Calendar, People) pour gérer les emails, agendas et contacts
+- **Sécurité** : OAuth 2.0 pour l'authentification
+
+## Démarrage rapide
 
 ### Prérequis
+
 - Python 3.10+
 - Flutter SDK
 - Compte LiveKit
@@ -28,66 +31,48 @@ ORION/
 
 ### Installation
 
-1. **Backend (Agent Orion)**
+**Backend**
 ```bash
 cd backend
 python3 -m venv venv
-source venv/bin/activate  # Sur macOS/Linux
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-2. **Frontend (Flutter)**
+**Frontend**
 ```bash
 cd frontend
 flutter pub get
 ```
 
-### Lancement
+### Lancer le projet
 
-**Option 1 : Script automatique (recommandé)**
+Le plus simple :
 ```bash
 cd scripts
 bash demo.sh
 ```
 
-**Option 2 : Lancement manuel**
+Ce script lance automatiquement l'agent Orion et l'application Flutter.
 
-1. Démarrer l'agent Orion :
-```bash
-cd scripts
-bash launch_orion.sh
+## Configuration
+
+Les variables d'environnement se configurent dans `backend/.env`. Voir [backend/README.md](backend/README.md) pour les détails.
+
+## Structure
+
+```
+ORION/
+├── frontend/          # Application Flutter (Web, iOS, Android)
+├── backend/           # Agent Orion (Python)
+│   ├── server/        # Serveur Flask pour tokens LiveKit
+│   ├── agent/         # Code source de l'agent
+│   └── secrets/       # Configuration OAuth
+└── scripts/           # Scripts de lancement
 ```
 
-2. Dans un autre terminal, lancer l'application Flutter :
-```bash
-cd frontend
-flutter clean
-flutter pub get
-flutter run -d chrome
-```
+## Notes
 
-## 📚 Documentation
-
-- [Documentation du backend](backend/README.md)
-- [Diagnostics LiveKit](docs/DIAGNOSTIC_LIVEKIT.md)
-- [Solution appliquée](docs/SOLUTION_APPLIQUEE.md)
-
-## 🛠️ Scripts Disponibles
-
-- `demo.sh` : Lance l'agent et l'application Flutter automatiquement
-- `launch_orion.sh` : Lance uniquement l'agent Orion (macOS/Linux)
-- `launch_orion.bat` : Lance uniquement l'agent Orion (Windows)
-- `dispatch_agent.py` : Script Python pour dispatcher l'agent à une room LiveKit
-
-## ⚙️ Configuration
-
-Les variables d'environnement doivent être configurées dans :
-- `backend/.env` (fichier centralisé pour le serveur Flask et l'agent Orion)
-
-Voir [backend/README.md](backend/README.md) pour plus de détails.
-
-## 📝 Notes
-
-- Le serveur Flask est déployé sur Render pour la production
-- L'agent Orion gère les calendriers Google, Gmail et les contacts
-- L'interface vocale utilise LiveKit pour la communication en temps réel
+- Projet développé dans le cadre d'une PeiP 2 à Polytech (septembre-décembre 2025)
+- Prototype fonctionnel, prêt pour des améliorations en vue d'une industrialisation
+- Matériel : Raspberry Pi Zero 2, écran 7 pouces, système audio mono
