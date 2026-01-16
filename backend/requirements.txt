@@ -1,0 +1,27 @@
+# Flask server dependencies
+flask>=3.0.0
+flask-cors>=4.0.0
+gunicorn>=21.2.0
+
+# LiveKit dependencies
+livekit>=0.18.2
+livekit-agents>=0.12.1
+livekit-plugins-openai>=0.10.9
+
+# OpenAI dependencies
+openai~=1.58.1
+
+# Environment management
+python-dotenv~=1.0.0
+
+# Google API dependencies
+google-auth>=2.0.0
+google-auth-oauthlib>=1.0.0
+google-auth-httplib2>=0.1.0
+google-api-python-client>=2.0.0
+
+# Additional dependencies
+requests>=2.28.0
+fastapi>=0.112.0
+uvicorn>=0.30.0
+pytz>=2024.1
