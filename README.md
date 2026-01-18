@@ -2,7 +2,7 @@
 
 Agent IA conversationnel vocal conçu pour fluidifier la communication entre les équipes de production et de maintenance en environnement industriel.
 
-## Le problème
+## Problématique
 
 En atelier, les opérateurs doivent garder les mains libres et propres (port de gants, manipulation de pièces). En cas d'incident, l'utilisation d'un clavier ou d'une souris pour saisir un ticket de maintenance est inadaptée. Orion permet de signaler une anomalie par simple commande vocale.
 

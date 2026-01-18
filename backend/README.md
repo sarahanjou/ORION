@@ -4,7 +4,13 @@ La partie backend, également appelée le cerveau d'Orion, orchestre l'intellige
 
 ## Fonctionnalités
 
-Orion planifie automatiquement les interventions de maintenance depuis les demandes vocales des opérateurs. Lorsqu'un incident est signalé, l'agent crée des événements dans les calendriers Google (maintenance et ligne de production concernée) selon le niveau d'urgence. Il vérifie les disponibilités du calendrier maintenance pour trouver le premier créneau libre, puis envoie un email récapitulatif à l'équipe de maintenance via l'API Gmail. L'agent peut également consulter le planning des prochaines interventions pour les techniciens. L'ensemble du traitement s'effectue via LiveKit pour la communication audio temps réel et OpenAI Realtime Model pour l'analyse directe de la voix, sans étape de transcription intermédiaire.
+- **Planification Intelligente** : Analyse l'urgence des pannes et planifie automatiquement les interventions dans les agendas Google Calendar (maintenance et ligne de production).
+
+- **Reporting Automatisé** : Génère et envoie des comptes-rendus d'incidents par Gmail API.
+
+- **Interface Vocale Temps Réel** : Communication ultra-basse latence via LiveKit.
+
+- **Raisonnement Natif Audio** : Utilisation du modèle OpenAI Realtime pour comprendre l'intention directement depuis la voix (sans latence de transcription textuelle).
 
 ## Choix techniques
 
