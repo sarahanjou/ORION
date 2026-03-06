@@ -28,7 +28,7 @@ class WaveformRingPainter extends CustomPainter {
 
     // Anneau externe
     final paintDotsOuter = Paint()
-      ..color = Colors.cyan.shade800.withOpacity(0.4)
+      ..color = Colors.cyan.shade800.withValues(alpha: 0.4)
       ..strokeWidth = 2.0
       ..style = PaintingStyle.stroke
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4.0);
@@ -46,7 +46,7 @@ class WaveformRingPainter extends CustomPainter {
 
     // Anneau interne
     final paintDotsInner = Paint()
-      ..color = Colors.cyan.shade200.withOpacity(0.6)
+      ..color = Colors.cyan.shade200.withValues(alpha: 0.6)
       ..strokeWidth = 1.2
       ..style = PaintingStyle.stroke;
     _drawRing(canvas, center, baseRadius * 0.88, currentAmplitude * 0.5,

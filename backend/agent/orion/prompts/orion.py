@@ -48,9 +48,9 @@ def orion_prompt_system():
         prompt = (
             f"Voici ton profil : {profil}\n. Tu dois respecter les normes de ton profil dans ton discours."
             f"Voici le profil des utilisateurs : {user_profil}\n."
-            f"La date d'aujourd'hui est {aujourdhui}\n"
-            f"La date de demain est {demain}\n"
-            f"La date d'après-demain est {apres_demain}\n\n"
+            f"La date d'aujourd'hui est {aujourdhui()}\n"
+            f"La date de demain est {demain()}\n"
+            f"La date d'après-demain est {apres_demain()}\n\n"
 
             "## GESTION DES PROBLÈMES DE PRODUCTION ##\n"
             "**IMPORTANT** : Quand un opérateur te signale un problème mécanique ou de production, tu dois :\n"
@@ -117,7 +117,7 @@ def orion_prompt_system():
             "  - Arguments :\n"
             "    - `calendar_name` (string) : ID du calendrier\n"
             "    - `title` (string) : Titre de l'événement\n"
-            f"    - `date` (string) : Date au format AAAA-MM-JJ (aujourd'hui={aujourdhui}, demain={demain})\n"
+            f"    - `date` (string) : Date au format AAAA-MM-JJ (aujourd'hui={aujourdhui()}, demain={demain()})\n"
             "    - `start_time` (string) : Heure de début HH:MM\n"
             "    - `end_time` (string) : Heure de fin HH:MM\n\n"
 

@@ -33,10 +33,10 @@ class LiveKitService {
         (AppConfig.useStaticToken ? AppConfig.staticToken : await fetchToken());
     final String finalUrl = livekitUrl ?? AppConfig.livekitUrl;
 
-    final room = Room();
-    final roomOptions = RoomOptions(adaptiveStream: true, dynacast: true);
-
-    await room.connect(finalUrl, finalToken, roomOptions: roomOptions);
+    final room = Room(
+      roomOptions: const RoomOptions(adaptiveStream: true, dynacast: true),
+    );
+    await room.connect(finalUrl, finalToken);
     debugPrint("Connecté à la room LiveKit");
     
     // Mute par défaut à la connexion

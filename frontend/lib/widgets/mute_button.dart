@@ -31,8 +31,8 @@ class MuteButton extends StatelessWidget {
             colors: !isMuted
                 ? [
                     // Actif : Effet Verre/Lumière
-                    baseColor.withOpacity(0.3),
-                    baseColor.withOpacity(0.05),
+                    baseColor.withValues(alpha: 0.3),
+                    baseColor.withValues(alpha: 0.05),
                   ]
                 : [
                     // Inactif : Effet Mat Sombre
@@ -42,15 +42,15 @@ class MuteButton extends StatelessWidget {
           ),
           border: Border.all(
             color: !isMuted
-                ? baseColor.withOpacity(0.5)
+                ? baseColor.withValues(alpha: 0.5)
                 : Colors.grey.shade600,
             width: 2,
           ),
           boxShadow: [
             BoxShadow(
               color: !isMuted
-                  ? baseColor.withOpacity(0.3)
-                  : Colors.black.withOpacity(0.5),
+                  ? baseColor.withValues(alpha: 0.3)
+                  : Colors.black.withValues(alpha: 0.5),
               blurRadius: !isMuted ? 30 : 10,
               spreadRadius: 2,
             ),

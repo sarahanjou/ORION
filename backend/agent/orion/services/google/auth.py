@@ -70,6 +70,8 @@ if service:
     calendar_service = service["calendar"]
     people_service = service["people"]
     logging.info("Les différents services sont prêts à être utilisés.")
-
 else:
+    gmail_service = None
+    calendar_service = None
+    people_service = None
     logging.error("L'authentification a échoué.")

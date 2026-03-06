@@ -5,17 +5,32 @@ import pytz
 # Timezone Paris
 paris_tz = pytz.timezone("Europe/Paris")
 
-# Dates clés calculées au chargement
-now = datetime.datetime.now(paris_tz)
-aujourdhui = now.date()
-demain = aujourdhui + timedelta(days=1)
-apres_demain = aujourdhui + timedelta(days=2)
-hier = aujourdhui + timedelta(days=-1)
-avanthier = aujourdhui + timedelta(days=-2)
+
+def _now():
+    return datetime.datetime.now(paris_tz)
+
+
+def aujourdhui():
+    return _now().date()
+
+
+def demain():
+    return aujourdhui() + timedelta(days=1)
+
+
+def apres_demain():
+    return aujourdhui() + timedelta(days=2)
+
+
+def hier():
+    return aujourdhui() + timedelta(days=-1)
+
+
+def avanthier():
+    return aujourdhui() + timedelta(days=-2)
+
 
 # Heures pratiques
 midi = "12:00"
 minuit = "00:00"
 fiftynine = "23:59"
-
-

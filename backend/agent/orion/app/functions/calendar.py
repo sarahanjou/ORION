@@ -263,8 +263,9 @@ class CalendarFunctions(BaseFunctions):
             deleted = False
 
             for event in events:
-                event_start_time = event.get("start", {}).get("dateTime", "").split("T")[1][:5]
-                event_end_time = event.get("end", {}).get("dateTime", "").split("T")[1][:5]
+                event_dt = event.get("start", {}).get("dateTime", "")
+                if not event_dt:
+                    continue
 
                 event_id = event.get('id')
                 event_title = event.get("summary", "")
